@@ -85,11 +85,11 @@ def check_packages():
 
     scrcpy_status = subprocess.call(['which', 'scrcpy'])
     if scrcpy_status != 0:
-        print(f'\n{color.RED}ERROR : scrcpy is NOT installed!\n')
-        print(f'\n{color.CYAN}Please install scrcpy{color.WHITE}\n')
+        print(f'\n{color.RED}ERROR : scrcpy No Esta Instalado- Todavia se puede usar el sistema !\n')
+        print(f'\n{color.CYAN}PPorfavor Instalar scrcpy{color.WHITE}\n')
 
         choice = input(
-            '\nDo you still want to continue to PhoneSploit Pro?     Y / N > ').lower()
+            '\nTodavia quiere seguir ?     Y / N > ').lower()
         if choice == 'y' or choice == '':
             return
         elif choice == 'n':
@@ -98,8 +98,8 @@ def check_packages():
         else:
             while choice != 'y' and choice != 'n' and choice != '':
                 choice = input(
-                    '\nInvalid choice!, Press Y or N > ').lower()
-                if choice == 'y' or choice == '':
+                    '\nInvalid choice!, Pressione S or N > ').lower()
+                if choice == 's' or choice == '':
                     return
                 elif choice == 'n':
                     exit_phonesploit_pro()
@@ -131,11 +131,11 @@ def change_page(name):
 
 def connect():
     # Connect only 1 device at a time
-    print(f"\n{color.CYAN}Enter target phone's IP Address       {color.YELLOW}Example : 192.168.1.23{color.WHITE}")
+    print(f"\n{color.CYAN}Ingrese la dirección IP del teléfono objetivo      {color.YELLOW}Example : 192.168.1.23{color.WHITE}")
     ip = input("> ")
     if ip == '':
         print(
-            f'\n{color.RED} Null Input\n{color.GREEN} Going back to Main Menu{color.WHITE}')
+            f'\n{color.RED} Null Input\n{color.GREEN} Regresando a menu principal {color.WHITE}')
         return
     else:
         # Restart ADB on new connection.
@@ -174,28 +174,28 @@ def get_screenshot():
     os.system(f"adb shell screencap -p /sdcard/{file_name}")
     if screenshot_location == '':
         print(
-            f"\n{color.YELLOW}Enter location to save all screenshots, Press 'Enter' for default{color.WHITE}")
+            f"\n{color.YELLOW}Ingrese la ubicación para guardar todas las capturas de pantalla, presione 'Enter' para obtener el valor predeterminado{color.WHITE}")
         screenshot_location = input("> ")
     if screenshot_location == "":
         screenshot_location = 'Downloaded-Files'
         print(
-            f"\n{color.PURPLE}Saving screenshot to PhoneSploit-Pro/{screenshot_location}\n{color.WHITE}")
+            f"\n{color.PURPLE}Guardamdp Captura {screenshot_location}\n{color.WHITE}")
     else:
         print(
-            f"\n{color.PURPLE}Saving screenshot to {screenshot_location}\n{color.WHITE}")
+            f"\n{color.PURPLE}Guardando Captura  {screenshot_location}\n{color.WHITE}")
 
     os.system(f"adb pull /sdcard/{file_name} {screenshot_location}")
 
     # Asking to open file
     choice = input(
-        f'\n{color.GREEN}Do you want to Open the file?     Y / N {color.WHITE}> ').lower()
-    if choice == 'y' or choice == '':
+        f'\n{color.GREEN}Desea abrir el archivo?     S / N {color.WHITE}> ').lower()
+    if choice == 's' or choice == '':
         os.system(f"{opener} {screenshot_location}/{file_name}")
 
     elif not choice == 'n':
-        while choice != 'y' and choice != 'n' and choice != '':
+        while choice != 's' and choice != 'n' and choice != '':
             choice = input(
-                '\nInvalid choice!, Press Y or N > ').lower()
+                '\nInvalid choice!, Presione S or N > ').lower()
             if choice == 'y' or choice == '':
                 os.system(f"{opener} {screenshot_location}/{file_name}")
 
