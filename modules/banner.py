@@ -1,4 +1,5 @@
 from modules import color
+banner1 = 
 menu1 = f'''
 
     {color.WHITE}1. {color.GREEN}Conectar un dispositivo              {color.WHITE}6. {color.GREEN}Obtener captura de pantalla                        {color.WHITE}11. {color.GREEN}Instalar un APK
